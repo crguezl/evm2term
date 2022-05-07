@@ -1,0 +1,5 @@
+do (
+  def (x, array(array(1,2),array(3,4))),
+  =(array(x, 0, 0),9),
+  print(x) # [[9,2], [3,4]]
+)

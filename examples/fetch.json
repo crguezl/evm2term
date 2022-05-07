@@ -1,0 +1,149 @@
+{
+  "type": "apply",
+  "operator": {
+    "type": "word",
+    "line": 1,
+    "col": 1,
+    "length": 2,
+    "name": "do"
+  },
+  "args": [
+    {
+      "type": "apply",
+      "operator": {
+        "type": "property",
+        "operator": {
+          "type": "apply",
+          "operator": {
+            "type": "property",
+            "operator": {
+              "type": "apply",
+              "operator": {
+                "type": "word",
+                "line": 2,
+                "col": 3,
+                "length": 5,
+                "name": "fetch"
+              },
+              "args": [
+                {
+                  "type": "value",
+                  "value": "https://api.github.com/users/github",
+                  "line": 2,
+                  "col": 9,
+                  "length": 37,
+                  "raw": "\"https://api.github.com/users/github\""
+                }
+              ]
+            },
+            "args": [
+              {
+                "type": "value",
+                "value": "then",
+                "line": 3,
+                "col": 6,
+                "length": 4,
+                "raw": "\"then\""
+              }
+            ]
+          },
+          "args": [
+            {
+              "type": "apply",
+              "operator": {
+                "type": "word",
+                "line": 3,
+                "col": 11,
+                "length": 2,
+                "name": "->"
+              },
+              "args": [
+                {
+                  "type": "word",
+                  "line": 3,
+                  "col": 14,
+                  "length": 3,
+                  "name": "res"
+                },
+                {
+                  "type": "apply",
+                  "operator": {
+                    "type": "property",
+                    "operator": {
+                      "type": "word",
+                      "line": 3,
+                      "col": 19,
+                      "length": 3,
+                      "name": "res"
+                    },
+                    "args": [
+                      {
+                        "type": "value",
+                        "value": "json",
+                        "line": 3,
+                        "col": 23,
+                        "length": 4,
+                        "raw": "\"json\""
+                      }
+                    ]
+                  },
+                  "args": []
+                }
+              ]
+            }
+          ]
+        },
+        "args": [
+          {
+            "type": "value",
+            "value": "then",
+            "line": 4,
+            "col": 6,
+            "length": 4,
+            "raw": "\"then\""
+          }
+        ]
+      },
+      "args": [
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "line": 4,
+            "col": 11,
+            "length": 2,
+            "name": "->"
+          },
+          "args": [
+            {
+              "type": "word",
+              "line": 4,
+              "col": 15,
+              "length": 4,
+              "name": "json"
+            },
+            {
+              "type": "apply",
+              "operator": {
+                "type": "word",
+                "line": 5,
+                "col": 7,
+                "length": 5,
+                "name": "print"
+              },
+              "args": [
+                {
+                  "type": "word",
+                  "line": 5,
+                  "col": 13,
+                  "length": 4,
+                  "name": "json"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

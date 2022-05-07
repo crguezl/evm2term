@@ -1,0 +1,129 @@
+{
+  "type": "apply",
+  "operator": {
+    "type": "word",
+    "name": "do"
+  },
+  "args": [
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "define"
+      },
+      "args": [
+        {
+          "type": "word",
+          "name": "x"
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "name": "array"
+          },
+          "args": [
+            {
+              "type": "value",
+              "value": 1
+            },
+            {
+              "type": "value",
+              "value": 2
+            },
+            {
+              "type": "value",
+              "value": 3
+            },
+            {
+              "type": "value",
+              "value": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "define"
+      },
+      "args": [
+        {
+          "type": "word",
+          "name": "inc"
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "name": "fun"
+          },
+          "args": [
+            {
+              "type": "word",
+              "name": "x"
+            },
+            {
+              "type": "word",
+              "name": "i"
+            },
+            {
+              "type": "word",
+              "name": "_"
+            },
+            {
+              "type": "apply",
+              "operator": {
+                "type": "word",
+                "name": "+"
+              },
+              "args": [
+                {
+                  "type": "word",
+                  "name": "x"
+                },
+                {
+                  "type": "value",
+                  "value": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "print"
+      },
+      "args": [
+        {
+          "type": "apply",
+          "operator": {
+            "type": "methodapply",
+            "operator": {
+              "type": "word",
+              "name": "x"
+            },
+            "args": [
+              {
+                "type": "value",
+                "value": "map"
+              }
+            ]
+          },
+          "args": [
+            {
+              "type": "word",
+              "name": "inc"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+(
+    def(b,4),
+    def(input, "print(def(b,+(b,1)))"),
+    def(ast, parse(input)),
+    def(scope, getCurrentScope[]),
+    eval({ast: ast, scope:  scope.scope})
+)

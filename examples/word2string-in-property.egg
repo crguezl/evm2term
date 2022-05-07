@@ -1,0 +1,4 @@
+do( # test
+    def(x, object(a: object(b: object(c: 42)))),
+    print(x["a", "b", "c"])
+)

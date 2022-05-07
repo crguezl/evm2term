@@ -1,0 +1,6 @@
+do{
+  def(a, array(1,2,3,4)),
+  def(f, fun(x, do { a.push(x), a })), # f returns a
+  =(f(5)[0], Math.PI),
+  print(a)
+}

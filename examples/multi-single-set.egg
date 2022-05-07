@@ -1,0 +1,7 @@
+do{
+  define(x, array[1, array[2, array[3,4]]]),
+  define(e, element(x,1,1)),
+  print(e),
+  set(e, array[5,4]),
+  print(x)
+}

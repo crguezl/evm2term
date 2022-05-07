@@ -1,0 +1,70 @@
+{
+  "type": "apply",
+  "operator": {
+    "type": "word",
+    "name": "do"
+  },
+  "args": [
+    {
+      "type": "asyncapply",
+      "operator": {
+        "type": "asyncword",
+        "name": "async"
+      },
+      "args": [
+        {
+          "type": "asyncapply",
+          "operator": {
+            "type": "asyncword",
+            "name": ":="
+          },
+          "args": [
+            {
+              "type": "asyncword",
+              "name": "res"
+            },
+            {
+              "type": "asyncapply",
+              "operator": {
+                "type": "asyncword",
+                "name": "fetch"
+              },
+              "args": [
+                {
+                  "type": "asyncvalue",
+                  "value": "https://api.github.com/users/github"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "asyncapply",
+          "operator": {
+            "type": "asyncword",
+            "name": "print"
+          },
+          "args": [
+            {
+              "type": "asyncword",
+              "name": "res"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "print"
+      },
+      "args": [
+        {
+          "type": "value",
+          "value": "hello"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+do {
+  def (x, 1),
+  set("x", 4), # 
+  print(x) # 4
+}

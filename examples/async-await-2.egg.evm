@@ -1,0 +1,13 @@
+{
+  "type": "apply",
+  "operator": {
+    "type": "word",
+    "name": "async"
+  },
+  "args": [
+    {
+      "type": "value",
+      "value": 2
+    }
+  ]
+}

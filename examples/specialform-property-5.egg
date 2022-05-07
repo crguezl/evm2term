@@ -1,0 +1,10 @@
+do(
+    def(b,4),
+    def(state, do[
+        print(=(b,+(b,1)))
+    ]),
+    =(state.scope["b"], 9),
+    print(state.ast),
+    print(eval(state)), # 10\n10
+    print(b) # 10
+)

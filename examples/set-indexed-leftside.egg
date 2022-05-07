@@ -1,0 +1,5 @@
+do {
+  def(x, array(1,2,3)),
+  set(x[2], 100),
+  print(x)
+}

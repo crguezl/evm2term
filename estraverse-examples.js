@@ -2,24 +2,27 @@ const fs = require('fs');
 const estraverse = require('estraverse');
 
 function toTerm(tree) {
-    let term = '';
+    let aux = [];
+    let lastTree = aux;
     tree = estraverse.traverse(tree, {
       enter: function(node, _) {
-          term += `${node.type}`;
+          lastTree = aux.length? aux[aux.length-1] : aux;
           if (node.type === 'word') {
-              term +=`{${node.name}}`;
+            lastTree.push(`${node.type}{${node.name}}`);
           } else if (node.type === 'value') {
-              term +=`{${node.value}}`;
+            lastTree.push(`${node.type}{${node.value}}`);
           } else {
-            term += "("
+            aux.push([]);
           }
-          return node;
       },
       leave: function(node) { 
-          if (node.type === 'apply' || node.type === 'property')
-            term +=")"; 
-          return node;
-    },
+          if (node.type === 'apply' || node.type === 'property') {
+            let children = aux.join(',');
+            aux.pop();
+            lastTree = aux.length? aux[aux.length-1] : aux;
+            lastTree.push(`${node.type}(${children})`); 
+          }
+      },
       keys: {
         apply: ["operator", "args"],
         property: ["operator","args"],
@@ -30,7 +33,7 @@ function toTerm(tree) {
       fallback: "iteration"
     });
 
-    return term;
+    return aux;
   }
 
   const fileName = process.argv[2] || 'examples/number.json';

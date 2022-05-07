@@ -1,0 +1,6 @@
+do(
+    def(x,4),
+    def(f, fun("x")),
+    set(f(), 9),
+    print(x)
+)

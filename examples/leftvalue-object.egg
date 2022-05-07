@@ -1,0 +1,5 @@
+do {
+  def (x, object(a: array(1,9), b:3)),
+  =(array(x, "a", 0),9),
+  print(x) # { "a":[9, 9], "b":3}
+}

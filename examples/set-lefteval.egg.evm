@@ -1,0 +1,382 @@
+{
+  "type": "apply",
+  "operator": {
+    "type": "word",
+    "name": "do"
+  },
+  "args": [
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "def"
+      },
+      "args": [
+        {
+          "type": "word",
+          "name": "x"
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "name": "array"
+          },
+          "args": [
+            {
+              "type": "apply",
+              "operator": {
+                "type": "word",
+                "name": "array"
+              },
+              "args": [
+                {
+                  "type": "value",
+                  "value": 1
+                },
+                {
+                  "type": "value",
+                  "value": 2
+                }
+              ]
+            },
+            {
+              "type": "apply",
+              "operator": {
+                "type": "word",
+                "name": "array"
+              },
+              "args": [
+                {
+                  "type": "value",
+                  "value": 3
+                },
+                {
+                  "type": "value",
+                  "value": 4
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "set"
+      },
+      "args": [
+        {
+          "type": "property",
+          "operator": {
+            "type": "word",
+            "name": "x"
+          },
+          "args": [
+            {
+              "type": "value",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "type": "value",
+          "value": 9
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "print"
+      },
+      "args": [
+        {
+          "type": "word",
+          "name": "x"
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "def"
+      },
+      "args": [
+        {
+          "type": "word",
+          "name": "y"
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "name": "map"
+          },
+          "args": [
+            {
+              "type": "value",
+              "value": "x"
+            },
+            {
+              "type": "value",
+              "value": 4
+            },
+            {
+              "type": "value",
+              "value": "y"
+            },
+            {
+              "type": "apply",
+              "operator": {
+                "type": "word",
+                "name": "array"
+              },
+              "args": [
+                {
+                  "type": "value",
+                  "value": 0
+                },
+                {
+                  "type": "value",
+                  "value": 7
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "set"
+      },
+      "args": [
+        {
+          "type": "property",
+          "operator": {
+            "type": "property",
+            "operator": {
+              "type": "word",
+              "name": "y"
+            },
+            "args": [
+              {
+                "type": "value",
+                "value": "y"
+              }
+            ]
+          },
+          "args": [
+            {
+              "type": "value",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "value",
+          "value": 9
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "print"
+      },
+      "args": [
+        {
+          "type": "property",
+          "operator": {
+            "type": "property",
+            "operator": {
+              "type": "word",
+              "name": "y"
+            },
+            "args": [
+              {
+                "type": "value",
+                "value": "y"
+              }
+            ]
+          },
+          "args": [
+            {
+              "type": "value",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "print"
+      },
+      "args": [
+        {
+          "type": "word",
+          "name": "y"
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "def"
+      },
+      "args": [
+        {
+          "type": "word",
+          "name": "z"
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "name": "object"
+          },
+          "args": [
+            {
+              "type": "value",
+              "value": "c"
+            },
+            {
+              "type": "value",
+              "value": 4
+            },
+            {
+              "type": "value",
+              "value": "g"
+            },
+            {
+              "type": "apply",
+              "operator": {
+                "type": "word",
+                "name": "fun"
+              },
+              "args": [
+                {
+                  "type": "word",
+                  "name": "a"
+                },
+                {
+                  "type": "apply",
+                  "operator": {
+                    "type": "word",
+                    "name": "set"
+                  },
+                  "args": [
+                    {
+                      "type": "property",
+                      "operator": {
+                        "type": "word",
+                        "name": "self"
+                      },
+                      "args": [
+                        {
+                          "type": "value",
+                          "value": "c"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "word",
+                      "name": "a"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "print"
+      },
+      "args": [
+        {
+          "type": "property",
+          "operator": {
+            "type": "word",
+            "name": "z"
+          },
+          "args": [
+            {
+              "type": "value",
+              "value": "c"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "print"
+      },
+      "args": [
+        {
+          "type": "apply",
+          "operator": {
+            "type": "property",
+            "operator": {
+              "type": "word",
+              "name": "z"
+            },
+            "args": [
+              {
+                "type": "value",
+                "value": "g"
+              }
+            ]
+          },
+          "args": [
+            {
+              "type": "value",
+              "value": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "print"
+      },
+      "args": [
+        {
+          "type": "property",
+          "operator": {
+            "type": "word",
+            "name": "z"
+          },
+          "args": [
+            {
+              "type": "value",
+              "value": "c"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

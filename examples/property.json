@@ -1,0 +1,40 @@
+{
+  "type": "apply",
+  "operator": {
+    "type": "property",
+    "operator": {
+      "type": "word",
+      "line": 1,
+      "col": 1,
+      "length": 1,
+      "name": "x"
+    },
+    "args": [
+      {
+        "type": "value",
+        "value": "sub",
+        "line": 1,
+        "col": 3,
+        "length": 5,
+        "raw": "\"sub\""
+      },
+      {
+        "type": "value",
+        "value": 1,
+        "line": 1,
+        "col": 10,
+        "length": 1
+      }
+    ]
+  },
+  "args": [
+    {
+      "type": "value",
+      "value": "length",
+      "line": 1,
+      "col": 13,
+      "length": 8,
+      "raw": "\"length\""
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+# Just a test of missing method. Call is executed instead
+do {
+  print(4(5,3,2)) ; 14
+}

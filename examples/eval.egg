@@ -1,0 +1,10 @@
+(
+    def(b,4),
+    def(input, "print(def(b,+(b,1)))"),
+    def(ast, parse(input)),
+    def(scope, do[]),
+    =(scope.ast, ast),
+    =(scope.scope["b"], 10), # Change b 
+    print(ast),
+    eval(scope)
+)

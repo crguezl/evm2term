@@ -1,0 +1,141 @@
+{
+  "type": "apply",
+  "operator": {
+    "type": "word",
+    "line": 1,
+    "col": 1,
+    "length": 2,
+    "name": "do"
+  },
+  "args": [
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "line": 2,
+        "col": 3,
+        "length": 5,
+        "name": "print"
+      },
+      "args": [
+        {
+          "type": "apply",
+          "operator": {
+            "type": "property",
+            "operator": {
+              "type": "apply",
+              "operator": {
+                "type": "property",
+                "operator": {
+                  "type": "apply",
+                  "operator": {
+                    "type": "property",
+                    "operator": {
+                      "type": "apply",
+                      "operator": {
+                        "type": "word",
+                        "line": 2,
+                        "col": 9,
+                        "length": 5,
+                        "name": "array"
+                      },
+                      "args": [
+                        {
+                          "type": "value",
+                          "value": 1,
+                          "line": 2,
+                          "col": 15,
+                          "length": 1
+                        },
+                        {
+                          "type": "value",
+                          "value": 4,
+                          "line": 2,
+                          "col": 17,
+                          "length": 1
+                        },
+                        {
+                          "type": "value",
+                          "value": 5,
+                          "line": 2,
+                          "col": 19,
+                          "length": 1
+                        }
+                      ]
+                    },
+                    "args": [
+                      {
+                        "type": "value",
+                        "value": "join",
+                        "line": 2,
+                        "col": 22,
+                        "length": 6,
+                        "raw": "\"join\""
+                      }
+                    ]
+                  },
+                  "args": [
+                    {
+                      "type": "value",
+                      "value": "-",
+                      "line": 2,
+                      "col": 30,
+                      "length": 3,
+                      "raw": "\"-\""
+                    }
+                  ]
+                },
+                "args": [
+                  {
+                    "type": "value",
+                    "value": "substring",
+                    "line": 2,
+                    "col": 35,
+                    "length": 11,
+                    "raw": "\"substring\""
+                  }
+                ]
+              },
+              "args": [
+                {
+                  "type": "value",
+                  "value": 0,
+                  "line": 2,
+                  "col": 48,
+                  "length": 1
+                },
+                {
+                  "type": "value",
+                  "value": 2,
+                  "line": 2,
+                  "col": 50,
+                  "length": 1
+                }
+              ]
+            },
+            "args": [
+              {
+                "type": "value",
+                "value": "concat",
+                "line": 2,
+                "col": 53,
+                "length": 8,
+                "raw": "\"concat\""
+              }
+            ]
+          },
+          "args": [
+            {
+              "type": "value",
+              "value": "hello egg",
+              "line": 2,
+              "col": 63,
+              "length": 11,
+              "raw": "\"hello egg\""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

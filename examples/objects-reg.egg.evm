@@ -1,0 +1,124 @@
+{
+  "type": "apply",
+  "operator": {
+    "type": "word",
+    "name": "do"
+  },
+  "args": [
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "def"
+      },
+      "args": [
+        {
+          "type": "word",
+          "name": "o"
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "name": "object"
+          },
+          "args": [
+            {
+              "type": "value",
+              "value": "regex"
+            },
+            {
+              "type": "value",
+              "value": {
+                "xregexp": {
+                  "captureNames": null,
+                  "source": "a+",
+                  "flags": ""
+                }
+              }
+            },
+            {
+              "type": "value",
+              "value": "match"
+            },
+            {
+              "type": "apply",
+              "operator": {
+                "type": "word",
+                "name": "fun"
+              },
+              "args": [
+                {
+                  "type": "word",
+                  "name": "string"
+                },
+                {
+                  "type": "apply",
+                  "operator": {
+                    "type": "property",
+                    "operator": {
+                      "type": "property",
+                      "operator": {
+                        "type": "word",
+                        "name": "self"
+                      },
+                      "args": [
+                        {
+                          "type": "value",
+                          "value": "regex"
+                        }
+                      ]
+                    },
+                    "args": [
+                      {
+                        "type": "value",
+                        "value": "exec"
+                      }
+                    ]
+                  },
+                  "args": [
+                    {
+                      "type": "word",
+                      "name": "string"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "print"
+      },
+      "args": [
+        {
+          "type": "apply",
+          "operator": {
+            "type": "property",
+            "operator": {
+              "type": "word",
+              "name": "o"
+            },
+            "args": [
+              {
+                "type": "value",
+                "value": "match"
+              }
+            ]
+          },
+          "args": [
+            {
+              "type": "value",
+              "value": "exaaaamples/string.egg"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

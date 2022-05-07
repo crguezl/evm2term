@@ -1,0 +1,4 @@
+do(
+    def(f, fun(x, +(x,1))),
+    print(f.length)
+)

@@ -1,0 +1,6 @@
+
+do{
+  :=(w, array(array(1,2), array(3,4))),
+  w["="](5, -1, -2), # Monkey patching
+  print(w) # [ [ 1, 2 ], [ 5, 4 ] ]
+}

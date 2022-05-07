@@ -1,0 +1,298 @@
+{
+  "type": "apply",
+  "operator": {
+    "type": "word",
+    "line": 1,
+    "col": 1,
+    "length": 2,
+    "name": "do"
+  },
+  "args": [
+    {
+      "type": "apply",
+      "operator": {
+        "type": "property",
+        "operator": {
+          "type": "word",
+          "line": 2,
+          "col": 3,
+          "length": 2,
+          "name": "fs"
+        },
+        "args": [
+          {
+            "type": "value",
+            "value": "readFile",
+            "line": 2,
+            "col": 6,
+            "length": 8,
+            "raw": "\"readFile\""
+          }
+        ]
+      },
+      "args": [
+        {
+          "type": "value",
+          "value": "examples/no-existe.egg",
+          "line": 2,
+          "col": 15,
+          "length": 24,
+          "raw": "\"examples/no-existe.egg\""
+        },
+        {
+          "type": "value",
+          "value": "utf8",
+          "line": 2,
+          "col": 41,
+          "length": 6,
+          "raw": "\"utf8\""
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "line": 3,
+            "col": 5,
+            "length": 3,
+            "name": "fun"
+          },
+          "args": [
+            {
+              "type": "word",
+              "line": 3,
+              "col": 9,
+              "length": 3,
+              "name": "err"
+            },
+            {
+              "type": "word",
+              "line": 3,
+              "col": 14,
+              "length": 4,
+              "name": "data"
+            },
+            {
+              "type": "apply",
+              "operator": {
+                "type": "word",
+                "line": 4,
+                "col": 7,
+                "length": 2,
+                "name": "if"
+              },
+              "args": [
+                {
+                  "type": "apply",
+                  "operator": {
+                    "type": "word",
+                    "line": 4,
+                    "col": 10,
+                    "length": 2,
+                    "name": "=="
+                  },
+                  "args": [
+                    {
+                      "type": "word",
+                      "line": 4,
+                      "col": 13,
+                      "length": 3,
+                      "name": "err"
+                    },
+                    {
+                      "type": "word",
+                      "line": 4,
+                      "col": 18,
+                      "length": 4,
+                      "name": "null"
+                    }
+                  ]
+                },
+                {
+                  "type": "apply",
+                  "operator": {
+                    "type": "word",
+                    "line": 4,
+                    "col": 25,
+                    "length": 5,
+                    "name": "print"
+                  },
+                  "args": [
+                    {
+                      "type": "word",
+                      "line": 4,
+                      "col": 31,
+                      "length": 4,
+                      "name": "data"
+                    }
+                  ]
+                },
+                {
+                  "type": "apply",
+                  "operator": {
+                    "type": "word",
+                    "line": 4,
+                    "col": 38,
+                    "length": 5,
+                    "name": "print"
+                  },
+                  "args": [
+                    {
+                      "type": "word",
+                      "line": 4,
+                      "col": 44,
+                      "length": 3,
+                      "name": "err"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "property",
+        "operator": {
+          "type": "word",
+          "line": 6,
+          "col": 3,
+          "length": 2,
+          "name": "fs"
+        },
+        "args": [
+          {
+            "type": "value",
+            "value": "readFile",
+            "line": 6,
+            "col": 6,
+            "length": 8,
+            "raw": "\"readFile\""
+          }
+        ]
+      },
+      "args": [
+        {
+          "type": "value",
+          "value": "examples/fs.egg",
+          "line": 6,
+          "col": 15,
+          "length": 17,
+          "raw": "\"examples/fs.egg\""
+        },
+        {
+          "type": "value",
+          "value": "utf8",
+          "line": 6,
+          "col": 34,
+          "length": 6,
+          "raw": "\"utf8\""
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "line": 7,
+            "col": 5,
+            "length": 3,
+            "name": "fun"
+          },
+          "args": [
+            {
+              "type": "word",
+              "line": 7,
+              "col": 9,
+              "length": 3,
+              "name": "err"
+            },
+            {
+              "type": "word",
+              "line": 7,
+              "col": 14,
+              "length": 4,
+              "name": "data"
+            },
+            {
+              "type": "apply",
+              "operator": {
+                "type": "word",
+                "line": 8,
+                "col": 7,
+                "length": 2,
+                "name": "if"
+              },
+              "args": [
+                {
+                  "type": "apply",
+                  "operator": {
+                    "type": "word",
+                    "line": 8,
+                    "col": 10,
+                    "length": 2,
+                    "name": "=="
+                  },
+                  "args": [
+                    {
+                      "type": "word",
+                      "line": 8,
+                      "col": 13,
+                      "length": 3,
+                      "name": "err"
+                    },
+                    {
+                      "type": "word",
+                      "line": 8,
+                      "col": 18,
+                      "length": 4,
+                      "name": "null"
+                    }
+                  ]
+                },
+                {
+                  "type": "apply",
+                  "operator": {
+                    "type": "word",
+                    "line": 8,
+                    "col": 25,
+                    "length": 5,
+                    "name": "print"
+                  },
+                  "args": [
+                    {
+                      "type": "word",
+                      "line": 8,
+                      "col": 31,
+                      "length": 4,
+                      "name": "data"
+                    }
+                  ]
+                },
+                {
+                  "type": "apply",
+                  "operator": {
+                    "type": "word",
+                    "line": 8,
+                    "col": 38,
+                    "length": 5,
+                    "name": "print"
+                  },
+                  "args": [
+                    {
+                      "type": "word",
+                      "line": 8,
+                      "col": 44,
+                      "length": 3,
+                      "name": "err"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

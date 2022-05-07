@@ -1,0 +1,10 @@
+do{ # Not working. You need to fix the maps in this version of Egg
+ def(logMapElements, fun(value, key, m,
+    print("map.get(",key,") = ",value, m)
+   ), # end logMapElements
+ ), # end def
+ def(m, map{foo: 3, bar: 4, baz: undefined}),
+ // no es realmente un mapa!!
+ print(m),
+ m.forEach(logMapElements)
+}

@@ -1,0 +1,5 @@
+do {
+  def (x, array(array(1,2),array(3,4))),
+  set(array(x, 0, 1), 9), # 
+  print(x)
+}
