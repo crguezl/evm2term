@@ -1,0 +1,17 @@
+apply(
+  op:word{do}, 
+  args:[
+      apply(op:word{print}, args:[property(op:value{hello}, args:[value{length}])]),
+      apply(op:word{print}, args:[
+          apply(
+            op:property(op:value{4}, args:[value{toFixed}]), 
+            args:[value{2}])
+        ]),
+      apply(
+          op:word{print}, 
+           args:[
+               apply(
+                   op:property(op:value{4}, args:[value{+}]), 
+                   args:[value{5},value{7},value{3}])])
+   ]
+)

@@ -1,5 +1,9 @@
+#!/usr/bin/env node
 const fs = require('fs');
 const estraverse = require('estraverse');
+
+const TYPE = 'type';
+const InnerNodes = ['apply', 'property'];
 
 function toTerm(tree) {
     let aux = [];
@@ -7,22 +11,22 @@ function toTerm(tree) {
     tree = estraverse.traverse(tree, {
       enter: function(node, _) {
           lastTree = aux.length? aux[aux.length-1] : aux;
-          if (node.type === 'word') {
-            lastTree.push(`${node.type}{${node.name}}`);
-          } else if (node.type === 'value') {
-            lastTree.push(`${node.type}{${node.value}}`);
+          if (node[TYPE] === 'word') {
+            lastTree.push(`${node[TYPE]}{${node.name}}`);
+          } else if (node[TYPE] === 'value') {
+            lastTree.push(`${node[TYPE]}{${node.value}}`);
           } else {
             aux.push([]);
           }
       },
       leave: function(node) { 
-          if (node.type === 'apply' || node.type === 'property') {
+          if (InnerNodes.includes(node[TYPE])) {
             lastTree = aux.length? aux[aux.length-1] : aux;
             
             let children = `op:${lastTree[0]}, args:[${lastTree.slice(1)}]`;
             aux.pop();
             lastTree = aux.length? aux[aux.length-1] : aux;
-            lastTree.push(`${node.type}(${children})`); 
+            lastTree.push(`${node[TYPE]}(${children})`); 
           }
       },
       keys: {
