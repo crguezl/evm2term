@@ -17,7 +17,9 @@ function toTerm(tree) {
       },
       leave: function(node) { 
           if (node.type === 'apply' || node.type === 'property') {
-            let children = aux.join(',');
+            lastTree = aux.length? aux[aux.length-1] : aux;
+            
+            let children = `op:${lastTree[0]}, args:[${lastTree.slice(1)}]`;
             aux.pop();
             lastTree = aux.length? aux[aux.length-1] : aux;
             lastTree.push(`${node.type}(${children})`); 
@@ -42,4 +44,4 @@ function toTerm(tree) {
   let t = toTerm(ast);
   //let s = JSON.stringify(t, null, 2);
   //console.log(s);
-  console.log(t);
+  console.log(t[0]);
