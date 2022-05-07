@@ -4,34 +4,36 @@ const estraverse = require("estraverse");
 
 const TYPE = "type";
 const InnerNodes = ["apply", "property"];
+const ApplyChildren = ["operator", "args"];
+const PropertyChildren = ApplyChildren;
 
 function toTerm(tree) {
-  let aux = [];
-  let lastTree = aux;
+  let stack = [];
+  let lastTree = stack;
   tree = estraverse.traverse(tree, {
     enter: function (node, _) {
-      lastTree = aux.length ? aux[aux.length - 1] : aux;
+      lastTree = stack.length ? stack[stack.length - 1] : stack;
       if (node[TYPE] === "word") {
         lastTree.push(`${node[TYPE]}{${node.name}}`);
       } else if (node[TYPE] === "value") {
         lastTree.push(`${node[TYPE]}{${node.value}}`);
       } else {
-        aux.push([]);
+        stack.push([]);
       }
     },
     leave: function (node) {
       if (InnerNodes.includes(node[TYPE])) {
-        lastTree = aux.length ? aux[aux.length - 1] : aux;
+        lastTree = stack.length ? stack[stack.length - 1] : stack;
 
         let children = `op:${lastTree[0]}, args:[${lastTree.slice(1)}]`;
-        aux.pop();
-        lastTree = aux.length ? aux[aux.length - 1] : aux;
+        stack.pop();
+        lastTree = stack.length ? stack[stack.length - 1] : stack;
         lastTree.push(`${node[TYPE]}(${children})`);
       }
     },
     keys: {
-      apply: ["operator", "args"],
-      property: ["operator", "args"],
+      apply: ApplyChildren,
+      property: PropertyChildren,
       word: [],
       value: [],
       regex: [],
@@ -39,7 +41,7 @@ function toTerm(tree) {
     fallback: "iteration",
   });
 
-  return aux;
+  return stack;
 }
 
 const fileName = process.argv[2] || "examples/number.json";
