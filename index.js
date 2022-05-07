@@ -2,42 +2,44 @@
 const fs = require("fs");
 const estraverse = require("estraverse");
 
-const TYPE = "type";
+// Consts describing Egg ASTs
+const TYPE = "type";  
 const InnerNodes = ["apply", "property"];
+const Leaves = {"word": "name", "value": "value"};
 const ApplyChildren = ["operator", "args"];
 const PropertyChildren = ApplyChildren;
+const KEYS = {
+  apply: ApplyChildren,
+  property: PropertyChildren,
+  word: [],
+  value: [],
+};
 
 function toTerm(tree) {
   let stack = [];
-  let lastTree = stack;
+  let stackPtr = stack;
   tree = estraverse.traverse(tree, {
     enter: function (node, _) {
-      lastTree = stack.length ? stack[stack.length - 1] : stack;
-      if (node[TYPE] === "word") {
-        lastTree.push(`${node[TYPE]}{${node.name}}`);
-      } else if (node[TYPE] === "value") {
-        lastTree.push(`${node[TYPE]}{${node.value}}`);
+      stackPtr = stack.length ? stack[stack.length - 1] : stack;
+      let type = node[TYPE];
+      let attrName = Leaves[type];
+      if (Object.keys(Leaves).includes(type)) {
+        stackPtr.push(`${type}{${node[attrName]}}`);
       } else {
         stack.push([]);
       }
     },
     leave: function (node) {
       if (InnerNodes.includes(node[TYPE])) {
-        lastTree = stack.length ? stack[stack.length - 1] : stack;
+        stackPtr = stack.length ? stack[stack.length - 1] : stack;
 
-        let children = `op:${lastTree[0]}, args:[${lastTree.slice(1)}]`;
+        let children = `op:${stackPtr[0]}, args:[${stackPtr.slice(1)}]`;
         stack.pop();
-        lastTree = stack.length ? stack[stack.length - 1] : stack;
-        lastTree.push(`${node[TYPE]}(${children})`);
+        stackPtr = stack.length ? stack[stack.length - 1] : stack;
+        stackPtr.push(`${node[TYPE]}(${children})`);
       }
     },
-    keys: {
-      apply: ApplyChildren,
-      property: PropertyChildren,
-      word: [],
-      value: [],
-      regex: [],
-    },
+    keys: KEYS,
     fallback: "iteration",
   });
 
