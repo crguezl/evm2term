@@ -14,6 +14,10 @@
     "Egg",
     "Compilers"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/crguezl/evm2term.git"
+  },
   "author": "Casiano Rodriguez Leon <crguezl@ull.edu.es> (https://crguezl.github.io/)",
   "license": "ISC",
   "dependencies": {
