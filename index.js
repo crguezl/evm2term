@@ -24,7 +24,7 @@ function toTerm(tree) {
       let type = node[TYPE];
       let attrName = Leaves[type];
       if (Object.keys(Leaves).includes(type)) {
-        stackPtr.push(`${type}{${node[attrName]}}`);
+        stackPtr.push(`${type}{${JSON.stringify(node[attrName], null, 0)}}`);
       } else {
         stack.push([]);
       }
