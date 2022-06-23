@@ -1,3 +1,4 @@
+// Consts describing Egg ASTs
 const TYPE = "type";  
 const InnerNodes = ["apply", "property"];
 const Leaves = {"word": "name", "value": "value"};

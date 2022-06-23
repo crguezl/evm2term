@@ -2,7 +2,7 @@
 const fs = require("fs");
 const estraverse = require("estraverse");
 
-// Consts describing Egg ASTs
+// Consts describing the ASTs
 const {
   KEYS,
   abbreviation,
