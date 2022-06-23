@@ -3,21 +3,13 @@ const fs = require("fs");
 const estraverse = require("estraverse");
 
 // Consts describing Egg ASTs
-const TYPE = "type";  
-const InnerNodes = ["apply", "property"];
-const Leaves = {"word": "name", "value": "value"};
-const ApplyChildren = {"operator": "op", "args": "args"}; // name of the child: abbreviation
-const PropertyChildren = ApplyChildren;
-const abbreviation = {
-  "operator": "op",
-  "args": "args",
-};
-const KEYS = {
-  apply: Object.keys(ApplyChildren),
-  property: Object.keys(PropertyChildren),
-  word: [],
-  value: [],
-};
+const {
+  KEYS,
+  abbreviation,
+  InnerNodes,
+  Leaves,
+  TYPE,
+} = require("./config");
 
 function findMyName(node, parent) {
   let parentType = parent? parent[TYPE] : "";
