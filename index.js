@@ -20,13 +20,12 @@ const KEYS = {
 };
 
 function findMyName(node, parent) {
-  let type = node[TYPE];
   let parentType = parent? parent[TYPE] : "";
 
   //console.log(`processing "${type}(${attrName}:${node[attrName]})" parent: ${parentType}`);
   let name = '';
   let closeBracket = '';
-  KEYS[parentType].forEach(childName => {
+  KEYS[parentType]?.forEach(childName => {
     if (parent[childName] === node) {
       //console.log(`${childName} is my name`);
       name = `${abbreviation[childName]}:`;
@@ -44,8 +43,7 @@ function findMyName(node, parent) {
       });
     }
   });
-  let attrName = Leaves[type]; 
-  return `${name}${type}{${JSON.stringify(node[attrName], null, 0)}}${closeBracket}`;
+  return { name, closeBracket}
 }
 
 function toTerm(tree) {
@@ -57,7 +55,9 @@ function toTerm(tree) {
       if (Object.keys(Leaves).includes(type)) {
         // find my name as a child of my parent
         //console.log(`processing "${type}(${attrName}:${node[attrName]})" parent: ${parent[TYPE]}`);
-        stackPtr().push(findMyName(node, parent));
+        let { name, closeBracket } = findMyName(node, parent);
+        let attrName = Leaves[type];
+        stackPtr().push(`${name}${type}{${JSON.stringify(node[attrName], null, 0)}}${closeBracket}`);
       } else {
         stack.push([]);
       }
@@ -66,31 +66,9 @@ function toTerm(tree) {
       if (InnerNodes.includes(node[TYPE])) {
         let children = `${stackPtr()}`;
         stack.pop();
-
-        let type = node[TYPE];
-        let parentType = parent? parent[TYPE] : "";
       
+        let { name, closeBracket } = findMyName(node, parent);
         //console.log(`processing "${type}(${attrName}:${node[attrName]})" parent: ${parentType}`);
-        let name = '';
-        let closeBracket = '';
-        KEYS[parentType]?.forEach(childName => {
-          if (parent[childName] === node) {
-            //console.log(`${childName} is my name`);
-            name = `${abbreviation[childName]}:`;
-          } else if (Array.isArray(parent[childName])) {
-            parent[childName].forEach((child,i) => {
-              if (child === node) {
-                //console.log(`I am the child ${i} of child ${childName} of ${parentType}`);
-                if (i == 0) {
-                  name = `${childName}:[`;
-                }
-                if (i == parent[childName].length - 1) {
-                  closeBracket = ']';
-                }
-              }
-            });
-          }
-        });
         stackPtr().push(`${name}${node[TYPE]}(${children})${closeBracket}`);
       }
     },
