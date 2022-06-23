@@ -29,12 +29,12 @@ function findMyName(node, parent) {
   let closeBracket = '';
   KEYS[parentType].forEach(childName => {
     if (parent[childName] === node) {
-      console.log(`${childName} is my name`);
+      //console.log(`${childName} is my name`);
       name = `${abbreviation[childName]}:`;
     } else if (Array.isArray(parent[childName])) {
       parent[childName].forEach((child,i) => {
         if (child === node) {
-          console.log(`I am the child ${i} of child ${childName} of ${parentType}`);
+          //console.log(`I am the child ${i} of child ${childName} of ${parentType}`);
           if (i == 0) {
             name = `${childName}:[`;
           }
