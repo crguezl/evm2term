@@ -78,6 +78,25 @@ You can get the shape of the AST using `evm2term`:
 ✗ evm2term examples/summult.json
 apply(op:word{"+"},args:[word{"a"},apply(op:word{"*"},args:[value{4},value{5}])])
 ```
+
+## The Term Language to Summarize ASTs
+
+`Term` is a DSL to summarize ASTs. Here is an attempt to describe the language:
+
+```
+term -> ('NAME' ':')? 'TYPE' '(' term (',' term)* ')'
+  | leaf
+leaf -> ('NAME' ':')? 'TYPE' ('{' 'ATTRIBUTE' '}')?
+```
+
+* Token `'NAME'` is the name of the child in the parent node, 
+* Token `'TYPE'` represents the type of the node, 
+* The token `'ATTRIBUTE'` is a  string containing a description of a single attribute of the node. 
+
+* Only the type of the node is shown
+* Only one selected attribute of a leaf is shown (Between curly brackets)
+* Array n-ary nodes are allowed (and they go between brackets)
+
 ## Future Work
 
 The algorithm used can work with almost any AST.
