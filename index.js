@@ -15,16 +15,34 @@ const KEYS = {
   value: [],
 };
 
+function findMyName(node, parent) {
+  let type = node[TYPE];
+  let attrName = Leaves[type]; 
+  let parentType = parent[TYPE];
+
+  console.log(`processing "${type}(${attrName}:${node[attrName]})" parent: ${parentType}`);
+  KEYS[parentType].forEach(childName => {
+    if (parent[childName] === node) {
+      console.log(`${childName} is my name`);
+    }
+  });
+
+}
+
 function toTerm(tree) {
   let stack = [];
   let stackPtr = stack;
   tree = estraverse.traverse(tree, {
-    enter: function (node, _) {
+    enter: function (node, parent) {
       stackPtr = stack.length ? stack[stack.length - 1] : stack;
       let type = node[TYPE];
       if (Object.keys(Leaves).includes(type)) {
-        let attrName = Leaves[type]; // word{"+"}
-        stackPtr.push(`${type}{${JSON.stringify(node[attrName], null, 0)}}`);
+        let attrName = Leaves[type]; 
+        // find my name as a child of my parent
+        //console.log(`processing "${type}(${attrName}:${node[attrName]})" parent: ${parent[TYPE]}`);
+        findMyName(node, parent, attrName);
+
+        stackPtr.push(`${type}{${JSON.stringify(node[attrName], null, 0)}}`); // word{"+"}
       } else {
         stack.push([]);
       }
