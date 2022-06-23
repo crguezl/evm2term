@@ -9,12 +9,11 @@ const {
   InnerNodes,
   Leaves,
   TYPE,
-} = require("./config");
+} = require("./egg-ast-description");
 
 function findMyName(node, parent) {
   let parentType = parent? parent[TYPE] : "";
 
-  //console.log(`processing "${type}(${attrName}:${node[attrName]})" parent: ${parentType}`);
   let name = '';
   let closeBracket = '';
   KEYS[parentType]?.forEach(childName => {
@@ -24,7 +23,6 @@ function findMyName(node, parent) {
     } else if (Array.isArray(parent[childName])) {
       parent[childName].forEach((child,i) => {
         if (child === node) {
-          //console.log(`I am the child ${i} of child ${childName} of ${parentType}`);
           if (i == 0) {
             name = `${childName}:[`;
           }
@@ -35,7 +33,7 @@ function findMyName(node, parent) {
       });
     }
   });
-  return { name, closeBracket}
+  return {name, closeBracket};
 }
 
 function toTerm(tree) {
@@ -45,8 +43,6 @@ function toTerm(tree) {
     enter: function (node, parent) {
       let type = node[TYPE];
       if (Object.keys(Leaves).includes(type)) {
-        // find my name as a child of my parent
-        //console.log(`processing "${type}(${attrName}:${node[attrName]})" parent: ${parent[TYPE]}`);
         let { name, closeBracket } = findMyName(node, parent);
         let attrName = Leaves[type];
         stackPtr().push(`${name}${type}{${JSON.stringify(node[attrName], null, 0)}}${closeBracket}`);
@@ -60,7 +56,6 @@ function toTerm(tree) {
         stack.pop();
       
         let { name, closeBracket } = findMyName(node, parent);
-        //console.log(`processing "${type}(${attrName}:${node[attrName]})" parent: ${parentType}`);
         stackPtr().push(`${name}${node[TYPE]}(${children})${closeBracket}`);
       }
     },

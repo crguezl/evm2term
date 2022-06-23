@@ -1,7 +1,8 @@
 // Consts describing Egg ASTs
 const TYPE = "type";  
-const InnerNodes = ["apply", "property"];
+// Attributes for leaves you want to display
 const Leaves = {"word": "name", "value": "value"};
+const InnerNodes = ["apply", "property"];
 
 const abbreviation = {
   "operator": "op",
