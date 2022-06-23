@@ -1,0 +1,246 @@
+{
+  "type": "apply",
+  "operator": {
+    "type": "word",
+    "name": "do",
+    "loc": {
+      "line": 1,
+      "col": 26
+    }
+  },
+  "args": [
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "def",
+        "loc": {
+          "line": 1,
+          "col": 3
+        }
+      },
+      "args": [
+        {
+          "type": "word",
+          "name": "h",
+          "loc": {
+            "line": 1,
+            "col": 1
+          }
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "name": "fun",
+            "loc": {
+              "line": 1,
+              "col": 7
+            }
+          },
+          "args": [
+            {
+              "type": "word",
+              "name": "x",
+              "loc": {
+                "line": 1,
+                "col": 11
+              }
+            },
+            {
+              "type": "apply",
+              "operator": {
+                "type": "apply",
+                "operator": {
+                  "type": "word",
+                  "name": "mul",
+                  "loc": {
+                    "line": 1,
+                    "col": 15
+                  }
+                },
+                "args": [
+                  {
+                    "type": "word",
+                    "name": "x",
+                    "loc": {
+                      "line": 1,
+                      "col": 17
+                    }
+                  }
+                ]
+              },
+              "args": [
+                {
+                  "type": "value",
+                  "value": {
+                    "type": "Complex",
+                    "info": [
+                      {
+                        "re": 1,
+                        "im": 1
+                      }
+                    ]
+                  },
+                  "loc": {
+                    "line": 1,
+                    "col": 20
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "loc": {
+        "line": 1,
+        "col": 3
+      }
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "do",
+        "loc": {
+          "line": 2,
+          "col": 20
+        }
+      },
+      "args": [
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "name": "print",
+            "loc": {
+              "line": 2,
+              "col": 1
+            }
+          },
+          "args": [
+            {
+              "type": "apply",
+              "operator": {
+                "type": "word",
+                "name": "def",
+                "loc": {
+                  "line": 2,
+                  "col": 9
+                }
+              },
+              "args": [
+                {
+                  "type": "word",
+                  "name": "c",
+                  "loc": {
+                    "line": 2,
+                    "col": 7
+                  }
+                },
+                {
+                  "type": "apply",
+                  "operator": {
+                    "type": "word",
+                    "name": "h",
+                    "loc": {
+                      "line": 2,
+                      "col": 12
+                    }
+                  },
+                  "args": [
+                    {
+                      "type": "value",
+                      "value": {
+                        "type": "Complex",
+                        "info": [
+                          {
+                            "re": 3,
+                            "im": 2
+                          }
+                        ]
+                      },
+                      "loc": {
+                        "line": 2,
+                        "col": 14
+                      }
+                    }
+                  ]
+                }
+              ],
+              "loc": {
+                "line": 2,
+                "col": 9
+              }
+            }
+          ]
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "name": "print",
+            "loc": {
+              "line": 3,
+              "col": 1
+            }
+          },
+          "args": [
+            {
+              "type": "apply",
+              "operator": {
+                "type": "apply",
+                "operator": {
+                  "type": "word",
+                  "name": "add",
+                  "loc": {
+                    "line": 3,
+                    "col": 7
+                  }
+                },
+                "args": [
+                  {
+                    "type": "word",
+                    "name": "c",
+                    "loc": {
+                      "line": 3,
+                      "col": 9
+                    }
+                  }
+                ]
+              },
+              "args": [
+                {
+                  "type": "value",
+                  "value": {
+                    "type": "Complex",
+                    "info": [
+                      {
+                        "re": 1,
+                        "im": -1
+                      }
+                    ]
+                  },
+                  "loc": {
+                    "line": 3,
+                    "col": 12
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "loc": {
+        "line": 2,
+        "col": 20
+      }
+    }
+  ],
+  "loc": {
+    "line": 1,
+    "col": 26
+  },
+  "source": "h :=  fun x { *(x)(1+i) }, \nprint(c := h(3+2i)), # {\"re\":1,\"im\":5}\nprint(+(c)(1-i))     # {\"re\":2,\"im\":4}",
+  "inputFile": "examples/calc.tiny"
+}

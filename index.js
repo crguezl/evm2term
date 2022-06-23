@@ -6,11 +6,11 @@ const estraverse = require("estraverse");
 const TYPE = "type";  
 const InnerNodes = ["apply", "property"];
 const Leaves = {"word": "name", "value": "value"};
-const ApplyChildren = ["operator", "args"];
+const ApplyChildren = {"operator": "op", "args": "args"}; // name of the child: abbreviation
 const PropertyChildren = ApplyChildren;
 const KEYS = {
-  apply: ApplyChildren,
-  property: PropertyChildren,
+  apply: Object.keys(ApplyChildren),
+  property: Object.keys(PropertyChildren),
   word: [],
   value: [],
 };
@@ -22,8 +22,8 @@ function toTerm(tree) {
     enter: function (node, _) {
       stackPtr = stack.length ? stack[stack.length - 1] : stack;
       let type = node[TYPE];
-      let attrName = Leaves[type];
       if (Object.keys(Leaves).includes(type)) {
+        let attrName = Leaves[type]; // word{"+"}
         stackPtr.push(`${type}{${JSON.stringify(node[attrName], null, 0)}}`);
       } else {
         stack.push([]);
