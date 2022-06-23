@@ -1,0 +1,36 @@
+{
+  "type": "apply",
+  "operator": {
+    "type": "word",
+    "name": "f",
+    "loc": {
+      "line": 1,
+      "col": 1
+    }
+  },
+  "args": [
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "f",
+        "loc": {
+          "line": 1,
+          "col": 3
+        }
+      },
+      "args": [
+        {
+          "type": "word",
+          "name": "x",
+          "loc": {
+            "line": 1,
+            "col": 5
+          }
+        }
+      ]
+    }
+  ],
+  "source": "f(f(x))",
+  "inputFile": "examples/callcall.tiny"
+}

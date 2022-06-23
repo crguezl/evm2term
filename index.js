@@ -21,10 +21,9 @@ const KEYS = {
 
 function findMyName(node, parent) {
   let type = node[TYPE];
-  let attrName = Leaves[type]; 
-  let parentType = parent[TYPE];
+  let parentType = parent? parent[TYPE] : "";
 
-  console.log(`processing "${type}(${attrName}:${node[attrName]})" parent: ${parentType}`);
+  //console.log(`processing "${type}(${attrName}:${node[attrName]})" parent: ${parentType}`);
   let name = '';
   let closeBracket = '';
   KEYS[parentType].forEach(childName => {
@@ -45,34 +44,54 @@ function findMyName(node, parent) {
       });
     }
   });
+  let attrName = Leaves[type]; 
   return `${name}${type}{${JSON.stringify(node[attrName], null, 0)}}${closeBracket}`;
 }
 
 function toTerm(tree) {
   let stack = [];
-  let stackPtr = stack;
+  let stackPtr = () => stack.length ? stack[stack.length - 1] : stack;
   tree = estraverse.traverse(tree, {
     enter: function (node, parent) {
-      stackPtr = stack.length ? stack[stack.length - 1] : stack;
       let type = node[TYPE];
       if (Object.keys(Leaves).includes(type)) {
-        let attrName = Leaves[type]; 
         // find my name as a child of my parent
         //console.log(`processing "${type}(${attrName}:${node[attrName]})" parent: ${parent[TYPE]}`);
-        stackPtr.push(findMyName(node, parent));
+        stackPtr().push(findMyName(node, parent));
       } else {
         stack.push([]);
       }
     },
-    leave: function (node) {
+    leave: function (node, parent) {
       if (InnerNodes.includes(node[TYPE])) {
-        stackPtr = stack.length ? stack[stack.length - 1] : stack;
-
-        let children = `${stackPtr}`;
-        //let children = `op:${stackPtr[0]}, args:[${stackPtr.slice(1)}]`;
+        let children = `${stackPtr()}`;
         stack.pop();
-        stackPtr = stack.length ? stack[stack.length - 1] : stack;
-        stackPtr.push(`${node[TYPE]}(${children})`);
+
+        let type = node[TYPE];
+        let parentType = parent? parent[TYPE] : "";
+      
+        //console.log(`processing "${type}(${attrName}:${node[attrName]})" parent: ${parentType}`);
+        let name = '';
+        let closeBracket = '';
+        KEYS[parentType]?.forEach(childName => {
+          if (parent[childName] === node) {
+            //console.log(`${childName} is my name`);
+            name = `${abbreviation[childName]}:`;
+          } else if (Array.isArray(parent[childName])) {
+            parent[childName].forEach((child,i) => {
+              if (child === node) {
+                //console.log(`I am the child ${i} of child ${childName} of ${parentType}`);
+                if (i == 0) {
+                  name = `${childName}:[`;
+                }
+                if (i == parent[childName].length - 1) {
+                  closeBracket = ']';
+                }
+              }
+            });
+          }
+        });
+        stackPtr().push(`${name}${node[TYPE]}(${children})${closeBracket}`);
       }
     },
     keys: KEYS,
