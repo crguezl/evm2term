@@ -91,7 +91,9 @@ leaf -> ('NAME' ':')? 'TYPE' ('{' 'ATTRIBUTE' '}')?
 
 * Token `'NAME'` is the name of the child in the parent node, 
 * Token `'TYPE'` represents the type of the node, 
-* The token `'ATTRIBUTE'` is a  string containing a description of a single attribute of the node. 
+* The token `'ATTRIBUTE'` is the JSON stringify of a single attribute of the leaf node. 
+
+To summarize the AST the following rules are followed: 
 
 * Only the type of the node is shown
 * Only one selected attribute of a leaf is shown (Between curly brackets)
