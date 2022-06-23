@@ -101,5 +101,6 @@ To summarize the AST the following rules are followed:
 
 ## Future Work
 
-The algorithm used can work with almost any AST.
-Write more AST descriptions for different JS transpilers (esprima, babel, etc.)
+By adding a configuration JS file following the pattern in [egg-ast-description.js](egg-ast-description.js), the program  can be used to work with different ASTs.
+
+* Write more AST descriptions for different JS transpilers (esprima, babel, etc.)
