@@ -1,0 +1,1 @@
+apply(op:property(op:word{"x"},args:[value{"sub"},value{1}]),args:[value{"length"}])

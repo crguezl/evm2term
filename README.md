@@ -79,6 +79,7 @@ You can get the shape of the AST using `evm2term`:
 apply(op:word{"+"},args:[word{"a"},apply(op:word{"*"},args:[value{4},value{5}])])
 ```
 
+
 ## The Term Language to Summarize ASTs
 
 `Term` is a DSL to summarize ASTs. Here is an attempt to describe the language:
@@ -98,6 +99,10 @@ To summarize the AST the following rules are followed:
 * Only the type of the node is shown
 * Only one selected attribute of a leaf is shown (Between curly brackets)
 * Array n-ary nodes are allowed (and they go between brackets)
+
+## Trick
+
+The syntax of the output seems to be legal ruby. You get syntax highlighting by saving the output with the `.rb` extension
 
 ## Future Work
 
