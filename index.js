@@ -11,6 +11,10 @@ const {
   TYPE,
 } = require("./egg-ast-description");
 
+let indent = 0;
+
+let prefix = () => " ".repeat(indent);
+
 function findMyName(node, parent) {
   let parentType = parent? parent[TYPE] : "";
 
@@ -25,9 +29,11 @@ function findMyName(node, parent) {
         if (child === node) {
           if (i == 0) {
             name = `${childName}:[`;
+            indent += 2;
           }
           if (i == parent[childName].length - 1) {
             closeBracket = ']';
+            indent -= 2;
           }
         }
       });
@@ -48,16 +54,21 @@ function toTerm(tree) {
         let description = attrName ? `{${JSON.stringify(node[attrName], null, 0)}}` : "";
         stackPtr().push(`${name}${type}${description}${closeBracket}`);
       } else {
+        debugger;
         stack.push([]);
+        indent += 2;
       }
     },
     leave: function (node, parent) {
       if (InnerNodes.includes(node[TYPE])) {
-        let children = `${stackPtr()}`;
+        debugger;
+        let children = // `${stackPtr()}`;
+          stackPtr().map(x => "\n"+prefix()+x).join(",");
         stack.pop();
       
         let { name, closeBracket } = findMyName(node, parent);
         stackPtr().push(`${name}${node[TYPE]}(${children})${closeBracket}`);
+        indent -= 2;
       }
     },
     keys: KEYS,
