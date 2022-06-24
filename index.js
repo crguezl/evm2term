@@ -28,12 +28,12 @@ function findMyName(node, parent) {
       parent[childName].forEach((child,i) => {
         if (child === node) {
           if (i == 0) {
-            name = `${childName}:[`;
-            indent += 2;
+            name = `${childName}:[\n${prefix()}`;
+            //indent += 2;
           }
           if (i == parent[childName].length - 1) {
             closeBracket = ']';
-            indent -= 2;
+            //indent -= 2;
           }
         }
       });
@@ -62,8 +62,7 @@ function toTerm(tree) {
     leave: function (node, parent) {
       if (InnerNodes.includes(node[TYPE])) {
         debugger;
-        let children = // `${stackPtr()}`;
-          stackPtr().map(x => "\n"+prefix()+x).join(",");
+        let children = stackPtr().map(x => "\n"+prefix()+x).join(",");
         stack.pop();
       
         let { name, closeBracket } = findMyName(node, parent);
