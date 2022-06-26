@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-const fs = require("fs");
 const estraverse = require("estraverse");
 
 // Consts describing the ASTs
@@ -13,7 +12,8 @@ const {
 
 let indent = 0;
 
-let prefix = () => " ".repeat(indent);
+//let prefix = () => "\n"+" ".repeat(indent);
+let prefix = () => "";
 
 function findMyName(node, parent) {
   let parentType = parent? parent[TYPE] : "";
@@ -62,11 +62,14 @@ function toTerm(tree) {
     leave: function (node, parent) {
       if (InnerNodes.includes(node[TYPE])) {
         debugger;
-        let children = stackPtr().map(x => "\n"+prefix()+x).join(",");
-        stack.pop();
-      
+
         let { name, closeBracket } = findMyName(node, parent);
-        stackPtr().push(`${name}${node[TYPE]}(${children})${closeBracket}`);
+
+        let children = stackPtr().map(x => {
+          return prefix()+x
+        }).join(",");
+        stack.pop();
+              stackPtr().push(`${name}${node[TYPE]}(${children})${closeBracket}`);
         indent -= 2;
       }
     },
@@ -77,8 +80,4 @@ function toTerm(tree) {
   return stack;
 }
 
-const fileName = process.argv[2] || "examples/number.json";
-let ast = JSON.parse(fs.readFileSync(fileName, "utf8"));
-
-let t = toTerm(ast);
-console.log(t[0]);
+module.exports = toTerm;
