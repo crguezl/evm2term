@@ -1,6 +1,6 @@
 {
   "name": "evm2term",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Translates from Egg Virtual Machine (JSON) to a summarized AST term",
   "main": "index.js",
   "bin": {
