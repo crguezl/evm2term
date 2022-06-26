@@ -5,6 +5,19 @@
 npm i -g evm2term
 ```
 
+## Usage
+
+```
+Usage: evm2term [options] <json file containing the ast>
+
+Converts an Egg AST to a term representation
+
+Options:
+  -V, --version  output the version number
+  -i, --indent
+  -h, --help     display help for command
+```
+
 ## Description
 
 Provides an executable `evm2term` that summarizes an AST stored in a json file.
