@@ -32,7 +32,7 @@ function findMyName(node, parent) {
           if (i == 0) {
             name = `${childName}:[`;
           }
-          else if (i == parent[childName].length - 1) {
+          if (i == parent[childName].length - 1) {
             closeBracket = `]`;            
           }
         }
@@ -69,7 +69,8 @@ function toTerm(tree) {
           return prefix()+x
         }).join(",");
         stack.pop();
-              stackPtr().push(`${name}${node[TYPE]}(${children})${closeBracket}`);
+              
+        stackPtr().push(`${name}${node[TYPE]}(${children})${closeBracket}`);
         indent -= 2;
       }
     },
