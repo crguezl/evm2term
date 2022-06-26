@@ -10,7 +10,8 @@
     "test": "./index.js examples/property-simple.json",
     "start": "node index.js examples/property.json",
     "complex": "./index.js examples/calc.json",
-    "summult": "./index.js examples/summult.json"
+    "summult": "./index.js examples/summult.json",
+    "deb": "node --inspect-brk ./index.js examples/summult.json"
   },
   "keywords": [
     "ULL",

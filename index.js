@@ -31,12 +31,9 @@ function findMyName(node, parent) {
         if (child === node) {
           if (i == 0) {
             name = `${childName}:[`;
-            indent += 2;
           }
           else if (i == parent[childName].length - 1) {
-            indent -= 2;
-            closeBracket = `]`;
-            
+            closeBracket = `]`;            
           }
         }
       });
