@@ -12,9 +12,6 @@ const {
 
 let indent = 0;
 
-let prefix = () => "\n"+" ".repeat(indent);
-//let prefix = () => "";
-
 function findMyName(node, parent) {
   let parentType = parent? parent[TYPE] : "";
   let parentIsArray = false;
@@ -42,7 +39,12 @@ function findMyName(node, parent) {
   return {name, closeBracket, parentIsArray};
 }
 
-function toTerm(tree) {
+function toTerm(tree, options) {
+  let prefix = () => "";
+  if (options.indent) {
+    prefix = () => "\n"+" ".repeat(indent);
+  }
+
   let stack = [];
   let stackPtr = () => stack.length ? stack[stack.length - 1] : stack;
   tree = estraverse.traverse(tree, {
