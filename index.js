@@ -17,6 +17,7 @@ let prefix = () => " ".repeat(indent);
 
 function findMyName(node, parent) {
   let parentType = parent? parent[TYPE] : "";
+  let parentIsArray = false;
 
   let name = '';
   let closeBracket = '';
@@ -25,21 +26,23 @@ function findMyName(node, parent) {
       //console.log(`${childName} is my name`);
       name = `${abbreviation[childName]}:`;
     } else if (Array.isArray(parent[childName])) {
+      parentIsArray = true;
       parent[childName].forEach((child,i) => {
         if (child === node) {
           if (i == 0) {
-            name = `${childName}:[\n${prefix()}`;
-            //indent += 2;
+            name = `${childName}:[`;
+            indent += 2;
           }
-          if (i == parent[childName].length - 1) {
-            closeBracket = ']';
-            //indent -= 2;
+          else if (i == parent[childName].length - 1) {
+            indent -= 2;
+            closeBracket = `]`;
+            
           }
         }
       });
     }
   });
-  return {name, closeBracket};
+  return {name, closeBracket, parentIsArray};
 }
 
 function toTerm(tree) {
