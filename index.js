@@ -12,8 +12,8 @@ const {
 
 let indent = 0;
 
-//let prefix = () => "\n"+" ".repeat(indent);
-let prefix = () => "";
+let prefix = () => "\n"+" ".repeat(indent);
+//let prefix = () => "";
 
 function findMyName(node, parent) {
   let parentType = parent? parent[TYPE] : "";
