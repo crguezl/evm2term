@@ -5,6 +5,8 @@ const { program } = require('commander');
 const { version } = require('../package.json');
 program
 .name('evm2term')
+.usage('[options] <json file containing the ast>')
+  .description('Converts an Egg AST to a term representation')
   .version(version)
   .option('-i, --indent');
 
