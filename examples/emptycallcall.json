@@ -1,0 +1,22 @@
+{
+  "type": "apply",
+  "operator": {
+    "type": "apply",
+    "operator": {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "f",
+        "loc": {
+          "line": 1,
+          "col": 1
+        }
+      },
+      "args": []
+    },
+    "args": []
+  },
+  "args": [],
+  "source": "f()()()",
+  "inputFile": "examples/emptycallcall.tiny"
+}

@@ -1,7 +1,3 @@
-
-> evm2term@1.1.3 complex
-> ./index.js examples/calc.json
-
 apply(
   op:word{"do"},
   args:[

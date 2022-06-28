@@ -23,17 +23,24 @@ function findMyName(node, parent) {
       //console.log(`${childName} is my name`);
       name = `${abbreviation[childName]}:`;
     } else if (Array.isArray(parent[childName])) {
+      console.log("parent is array");
       parentIsArray = true;
-      parent[childName].forEach((child,i) => {
-        if (child === node) {
-          if (i == 0) {
-            name = `${childName}:[`;
+      if (parent[childName].length === 0) {
+        name = `${childName}:[],`;
+      }
+      else {
+        parent[childName].forEach((child,i) => {
+          if (child === node) {
+            if (i == 0) {
+              name = `${childName}:[`;
+            }
+            if (i == parent[childName].length - 1) {
+              closeBracket = `]`;            
+            }
           }
-          if (i == parent[childName].length - 1) {
-            closeBracket = `]`;            
-          }
-        }
-      });
+        });
+      }
+
     }
   });
   return {name, closeBracket, parentIsArray};
