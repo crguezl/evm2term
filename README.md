@@ -103,7 +103,7 @@ term -> ('NAME' ':')? 'TYPE' '(' term (',' term)* ')'
 leaf -> ('NAME' ':')? 'TYPE' ('{' 'ATTRIBUTE' '}')?
 ```
 
-* Token `'NAME'` is the name of the child in the parent node, 
+* Token `'NAME'` is the name of the child in the node, 
 * Token `'TYPE'` represents the type of the node, 
 * The token `'ATTRIBUTE'` is the JSON stringify of a single attribute of the leaf node. 
 

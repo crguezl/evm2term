@@ -23,7 +23,7 @@ function findMyName(node, parent) {
       //console.log(`${childName} is my name`);
       name = `${abbreviation[childName]}:`;
     } else if (Array.isArray(parent[childName])) {
-      console.log("parent is array");
+      //console.log("parent is array");
       parentIsArray = true;
       if (parent[childName].length === 0) {
         name = `${childName}:[],`;
